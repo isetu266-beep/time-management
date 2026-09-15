@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "UserBackup": {
+      "title": "UserBackup",
+      "description": "Stores user synchronized planner and time management data indexed by email",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "User's gmail address"
+        },
+        "appData": {
+          "type": "object",
+          "description": "Complete application state including tasks, habits, yearly vision, and settings"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of the last backup"
+        },
+        "device": {
+          "type": "string",
+          "description": "Device platform or browser identifier"
+        }
+      },
+      "required": ["email", "appData", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/user_backups/{backupId}": {
+      "schema": "UserBackup",
+      "description": "Collection of user backups identified by email hash or ID"
+    }
+  }
+}

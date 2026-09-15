@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>আমার টাইম ম্যানেজমেন্ট - দৈনিক সময় ও লক্ষ্য ব্যবস্থাপনা</title>
+    <meta name="description" content="দৈনিক, মাসিক, বাৎসরিক সময় পরিকল্পনা, কাজের অগ্রাধিকার, রিমাইন্ডার, অভ্যাসের বিশ্লেষণ, সফলতার রোডম্যাপ এবং প্রোডাক্টিভিটি বনাম অপচয়ের গ্রাফিক্যাল অ্যানালাইসিস।" />
+    <meta property="og:title" content="আমার টাইম ম্যানেজমেন্ট - দৈনিক সময় ও লক্ষ্য ব্যবস্থাপনা" />
+    <meta property="og:description" content="দৈনিক, মাসিক, বাৎসরিক সময় পরিকল্পনা, কাজের অগ্রাধিকার, রিমাইন্ডার, অভ্যাসের বিশ্লেষণ, সফলতার রোডম্যাপ এবং প্রোডাক্টিভিটি বনাম অপচয়ের গ্রাফিক্যাল অ্যানালাইসিস।" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased font-sans">
+    <div id="root"></div>
+    <script>
+      function loadOfflineBundle() {
+        var v = '?v=' + Date.now();
+        if (!document.querySelector('link[data-offline-bundle="true"]')) {
+          var l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.setAttribute('data-offline-bundle', 'true');
+          l.href = './style.css' + v;
+          document.head.appendChild(l);
+        }
+        if (!document.querySelector('script[data-offline-bundle="true"]')) {
+          var s = document.createElement('script');
+          s.type = 'module';
+          s.setAttribute('data-offline-bundle', 'true');
+          s.src = './script.js' + v;
+          document.body.appendChild(s);
+        }
+      }
+      // Android APK / Local HTML mode (Website 2 APK Builder runs on file:///)
+      if (window.location.protocol === 'file:' || !window.location.host) {
+        loadOfflineBundle();
+      }
+      // Fallback if main.tsx is not available (e.g. outside Vite dev server)
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var rootEl = document.getElementById('root');
+          if (rootEl && !rootEl.hasChildNodes() && !window.location.hostname.includes('run.app')) {
+            loadOfflineBundle();
+          }
+        }, 1000);
+      });
+    </script>
+    <script type="module" src="/src/main.tsx" onerror="loadOfflineBundle()"></script>
+  </body>
+</html>

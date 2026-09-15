@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Roboto', 'Plus Jakarta Sans', 'Hind Siliguri', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'tnum' 1, 'kern' 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .font-mono, [class*="font-mono"], .font-number, [data-number] {
+    font-family: 'Roboto', ui-monospace, monospace, sans-serif !important;
+    font-variant-numeric: tabular-nums;
+  }
+  body {
+    overflow-x: hidden;
+    background-color: #f8f7f4;
+    color: #1a2724;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-width: none; /* Firefox: completely hide scrollbar */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+}
+
+/* Hide all scrollbars completely in Mobile APK / WebView and desktop */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Print Styles */
+@media print {
+  header, nav, button, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* 100% Mobile responsiveness fine-tuning */
+@media (max-width: 640px) {
+  input, select, textarea, button {
+    font-size: 14px !important;
+  }
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Native time picker styling */
+input[type="time"].native-time-input {
+  cursor: pointer;
+}
+
+input[type="time"].native-time-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
